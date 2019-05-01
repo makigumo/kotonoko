@@ -39,14 +39,14 @@
 		[cell setDrawsBackground:NO];
 		//[cell setFont:[PreferenceModal fontForKey:kHeadingFont]];
 		//[cell setTextColor:[PreferenceModal colorForKey:kHeadingColor]];
-		[cell setAlignment:NSNaturalTextAlignment];
+        [cell setAlignment:NSTextAlignmentNatural];
 	}else{
         [cell setDrawsBackground:NO];
 		//[cell setBackgroundColor:[PreferenceModal colorForKey:kDictionaryBackgroundColor]];
         //[cell setFont:[[NSFontManager sharedFontManager] 
         //  convertFont:[PreferenceModal fontForKey:st] toHaveTrait:NSBoldFontMask]];
 		//[cell setTextColor:[PreferenceModal colorForKey:kDictionaryNameColor]];
-		[cell setAlignment:NSCenterTextAlignment];
+        [cell setAlignment:NSTextAlignmentCenter];
 		[cell setBordered:NO];
 	}
 

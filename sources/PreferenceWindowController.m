@@ -235,7 +235,7 @@ static PreferenceWindowController *sSharedInstance = nil;
     NSUInteger styleMask = [_preferenceWindow styleMask];
     
     [_preferenceWindow setStyleMask:
-     (viewHeightSizable ? (styleMask | NSResizableWindowMask) : (styleMask & ~NSResizableWindowMask))];
+     (viewHeightSizable ? (styleMask | NSWindowStyleMaskResizable) : (styleMask & ~NSWindowStyleMaskResizable))];
 	//[_preferenceWindow setShowsResizeIndicator:viewHeightSizable];
 	
     NSButton *zoomButton = [_preferenceWindow standardWindowButton:NSWindowZoomButton];

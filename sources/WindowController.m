@@ -322,7 +322,6 @@ void* kHeadingFontBindingsIdentifier = (void*) @"headingFont";
 	}else{
 		isVertical = (windowStyle == kWindowStyleVertical);
 	}
-	
     if([_splitView isVertical] != isVertical){
 		CGFloat divThickness = [_splitView dividerThickness]; // 幅
         // 変換前の分割比を求めておく
@@ -352,8 +351,6 @@ void* kHeadingFontBindingsIdentifier = (void*) @"headingFont";
         }
         //[oView setFrame:oFrame];
         //[tView setFrame:tFrame];
-		
-		
 		
         [_splitView setNeedsDisplay:YES];
     }
@@ -448,7 +445,7 @@ void* kHeadingFontBindingsIdentifier = (void*) @"headingFont";
     NSColor* tagColor = [PreferenceModal colorForKey:kDictionaryNameColor];
     NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
     [paragraph setLineBreakMode:NSLineBreakByTruncatingTail];
-    [paragraph setAlignment:NSCenterTextAlignment];
+    [paragraph setAlignment:NSTextAlignmentCenter];
 	NSDictionary* tagAttributes;
     /*if([tagFont pointSize] > 10.0f){
         NSShadow* tagShadow = [[[NSShadow alloc] init] autorelease];

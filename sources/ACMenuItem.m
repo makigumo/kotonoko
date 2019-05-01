@@ -188,7 +188,7 @@ const NSString* kMenuKeyEquivalentIdentifier = @"keyEquivalent";
 	id value = [[item observedController] valueForKeyPath:[item observedKeyPath]];
 	if(value && [value isKindOfClass:[item valueClass]]){
 		[self setKeyEquivalent:value];
-		[self setKeyEquivalentModifierMask:NSCommandKeyMask];
+        [self setKeyEquivalentModifierMask:NSEventModifierFlagCommand];
 	}else{
 		[self setKeyEquivalent:@""];
 	}

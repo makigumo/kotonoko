@@ -1,0 +1,1134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PreferenceWindowController">
+            <connections>
+                <outlet property="_booksetPanel" destination="205" id="222"/>
+                <outlet property="_dictionaryPanel" destination="200" id="221"/>
+                <outlet property="_etcPanel" destination="207" id="224"/>
+                <outlet property="_fontPanel" destination="186" id="220"/>
+                <outlet property="_networkPanel" destination="939" id="940"/>
+                <outlet property="_panelBase" destination="218" id="225"/>
+                <outlet property="_preferenceWindow" destination="18" id="32"/>
+                <outlet property="_quickTagController" destination="526" id="533"/>
+                <outlet property="_tagPanel" destination="497" id="523"/>
+                <outlet property="_treeController" destination="278" id="382"/>
+                <outlet property="_viewPanel" destination="206" id="223"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="preferences" animationBehavior="default" id="18" userLabel="panel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowCollectionBehavior key="collectionBehavior" fullScreenAuxiliary="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="64" y="158" width="520" height="407"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <value key="minSize" type="size" width="480" height="200"/>
+            <view key="contentView" id="17">
+                <rect key="frame" x="0.0" y="0.0" width="520" height="407"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" id="10">
+                        <rect key="frame" x="422" y="12" width="84" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="1133">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="performClose:" target="18" id="66"/>
+                        </connections>
+                    </button>
+                    <customView id="218">
+                        <rect key="frame" x="0.0" y="60" width="520" height="347"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </customView>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="31"/>
+            </connections>
+        </window>
+        <customView id="186" userLabel="Font And Color">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="232"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" id="588">
+                    <rect key="frame" x="283" y="92" width="80" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Search Results:" id="1143">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <colorWell id="587">
+                    <rect key="frame" x="368" y="88" width="52" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <binding destination="169" name="value" keyPath="selection.findColor" id="592">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">ColorNameToColorTransformer</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </colorWell>
+                <button id="584" customClass="FontWell">
+                    <rect key="frame" x="86" y="20" width="274" height="25"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" title="font" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="1142">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="169" name="value" keyPath="selection.quickTagFont" id="591">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">FontNameToFontTransformer</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" id="583">
+                    <rect key="frame" x="17" y="24" width="64" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Tab:" id="1141">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <colorWell id="578">
+                    <rect key="frame" x="368" y="54" width="52" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <binding destination="169" name="value" keyPath="selection.headingColor" id="885">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">ColorNameToColorTransformer</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </colorWell>
+                <button id="575">
+                    <rect key="frame" x="428" y="154" width="52" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" title="underline" bezelStyle="shadowlessSquare" image="icon_underline" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="1140">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="169" name="value" keyPath="selection.linkUnderLine" id="577"/>
+                    </connections>
+                </button>
+                <colorWell id="574">
+                    <rect key="frame" x="368" y="187" width="52" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <binding destination="169" name="value" keyPath="selection.contentsColor" id="882">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">ColorNameToColorTransformer</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </colorWell>
+                <textField verticalHuggingPriority="750" id="198">
+                    <rect key="frame" x="281" y="125" width="82" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Keyword:" id="1139">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <colorWell id="195">
+                    <rect key="frame" x="368" y="121" width="52" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <binding destination="169" name="value" keyPath="selection.indexColor" id="252">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">ColorNameToColorTransformer</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </colorWell>
+                <textField verticalHuggingPriority="750" id="196">
+                    <rect key="frame" x="257" y="158" width="106" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Anchor:" id="1138">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <colorWell id="197">
+                    <rect key="frame" x="368" y="154" width="52" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <color key="color" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <binding destination="169" name="value" keyPath="selection.linkColor" id="249">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">ColorNameToColorTransformer</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </colorWell>
+                <button id="190" customClass="FontWell">
+                    <rect key="frame" x="86" y="54" width="274" height="25"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" title="font" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="1135">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="169" name="value" keyPath="selection.headingFont" id="231">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">FontNameToFontTransformer</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </button>
+                <button id="189" customClass="FontWell">
+                    <rect key="frame" x="86" y="187" width="274" height="25"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" title="font" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="1134">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="169" name="value" keyPath="selection.contentsFont" id="826">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">FontNameToFontTransformer</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" id="192">
+                    <rect key="frame" x="17" y="191" width="64" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Content:" id="1137">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="191">
+                    <rect key="frame" x="17" y="58" width="64" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Headword:" id="1136">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </customView>
+        <customView id="200" userLabel="Dictionaries">
+            <rect key="frame" x="0.0" y="0.0" width="520" height="280"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button id="1190" customClass="GradientButton">
+                    <rect key="frame" x="70" y="0.0" width="128" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="square" title="Button" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="1191" customClass="GradientButtonCell">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <textField verticalHuggingPriority="750" id="348">
+                    <rect key="frame" x="203" y="109" width="74" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="ID:" id="1157">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="347">
+                    <rect key="frame" x="282" y="106" width="218" height="22"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Small System Font Text" id="1156">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="278" name="value" keyPath="selection.id" id="372"/>
+                    </connections>
+                </textField>
+                <textField verticalHuggingPriority="750" id="346">
+                    <rect key="frame" x="203" y="140" width="77" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Original:" id="1155">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="345">
+                    <rect key="frame" x="282" y="138" width="218" height="22"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Small System Font Text" id="1154">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="278" name="value" keyPath="selection.title" id="371"/>
+                    </connections>
+                </textField>
+                <button id="342" customClass="GradientButton">
+                    <rect key="frame" x="45" y="0.0" width="26" height="22"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="square" title="Button" bezelStyle="shadowlessSquare" image="icon_delete" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="1151" customClass="GradientButtonCell">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="deleteFolder:" target="-2" id="490"/>
+                        <binding destination="278" name="enabled" keyPath="canRemove" id="478"/>
+                    </connections>
+                </button>
+                <button tag="1" id="341" customClass="GradientButton">
+                    <rect key="frame" x="20" y="0.0" width="26" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="square" title="Button" bezelStyle="shadowlessSquare" image="icon_add" imagePosition="only" alignment="center" borderStyle="border" tag="1" inset="2" id="1150" customClass="GradientButtonCell">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="selectFolder:" target="-2" id="370"/>
+                    </connections>
+                </button>
+                <box verticalHuggingPriority="750" boxType="separator" id="339">
+                    <rect key="frame" x="206" y="166" width="302" height="5"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                </box>
+                <textField verticalHuggingPriority="750" id="336">
+                    <rect key="frame" x="282" y="206" width="218" height="22"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="1147">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="278" name="editable" keyPath="selection.canRenameTag" id="513"/>
+                        <binding destination="278" name="value" keyPath="selection.tagName" id="1228"/>
+                    </connections>
+                </textField>
+                <textField verticalHuggingPriority="750" id="335">
+                    <rect key="frame" x="203" y="210" width="74" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Name:" id="1146">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="334">
+                    <rect key="frame" x="282" y="238" width="218" height="22"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Small System Font Text" id="1145">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="278" name="value" keyPath="selection.displayPath" id="383"/>
+                    </connections>
+                </textField>
+                <textField verticalHuggingPriority="750" id="333">
+                    <rect key="frame" x="203" y="241" width="74" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Path:" id="1144">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="330">
+                    <rect key="frame" x="20" y="21" width="178" height="239"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                    <clipView key="contentView" id="2nE-s1-9iw">
+                        <rect key="frame" x="1" y="1" width="176" height="237"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="18" indentationPerLevel="16" autoresizesOutlineColumn="YES" outlineTableColumn="332" id="331">
+                                <rect key="frame" x="0.0" y="0.0" width="176" height="237"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn editable="NO" width="173" minWidth="16" maxWidth="1000" id="332">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="1173">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <connections>
+                                            <binding destination="278" name="value" keyPath="arrangedObjects.tagName" id="1227">
+                                                <dictionary key="options">
+                                                    <integer key="NSAllowsEditingMultipleValuesSelection" value="0"/>
+                                                    <integer key="NSConditionallySetsEditable" value="1"/>
+                                                    <integer key="NSConditionallySetsEnabled" value="1"/>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </tableColumn>
+                                </tableColumns>
+                            </outlineView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="1179">
+                        <rect key="frame" x="-100" y="-100" width="161" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="1178">
+                        <rect key="frame" x="-30" y="1" width="15" height="228"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <button verticalHuggingPriority="750" tag="2" id="1264">
+                    <rect key="frame" x="282" y="176" width="186" height="23"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" alignment="left" state="on" borderStyle="border" tag="2" inset="2" id="1269">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="selectFolder:" target="-2" id="1281"/>
+                        <binding destination="278" name="enabled" keyPath="selection.canHaveAppendix" id="1275"/>
+                        <binding destination="278" name="title" keyPath="selection.appendix" id="1276"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" id="1265">
+                    <rect key="frame" x="476" y="176" width="24" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="smallSquare" title="delete" bezelStyle="smallSquare" image="icon_delete" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="1268">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="deleteAppendix:" target="-2" id="1282"/>
+                        <binding destination="278" name="enabled" keyPath="selection.appendix" id="1280">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSIsNotNil</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" id="1266">
+                    <rect key="frame" x="203" y="180" width="74" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Appendix:" id="1267">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </customView>
+        <customView id="205" userLabel="Book Set">
+            <rect key="frame" x="0.0" y="0.0" width="520" height="380"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button id="1188" customClass="GradientButton">
+                    <rect key="frame" x="70" y="0.0" width="107" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="square" title="Button" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="1189" customClass="GradientButtonCell">
+                        <behavior key="behavior" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <button id="352" customClass="GradientButton">
+                    <rect key="frame" x="45" y="0.0" width="26" height="22"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <buttonCell key="cell" type="square" title="Button" bezelStyle="shadowlessSquare" image="icon_delete" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="1162" customClass="GradientButtonCell">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="remove:" target="398" id="405"/>
+                        <binding destination="398" name="enabled" keyPath="canRemove" id="407"/>
+                    </connections>
+                </button>
+                <button tag="1" id="351" customClass="GradientButton">
+                    <rect key="frame" x="20" y="0.0" width="26" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="square" title="Button" bezelStyle="shadowlessSquare" image="icon_add" imagePosition="only" alignment="center" borderStyle="border" tag="1" inset="2" id="1161" customClass="GradientButtonCell">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="add:" target="398" id="474"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" id="350">
+                    <rect key="frame" x="249" y="338" width="251" height="22"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="1160">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="398" name="value" keyPath="selection.title" id="419"/>
+                    </connections>
+                </textField>
+                <textField verticalHuggingPriority="750" id="349">
+                    <rect key="frame" x="192" y="340" width="52" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Name:" id="1159">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="276">
+                    <rect key="frame" x="182" y="313" width="56" height="17"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Dictionaries" id="1158">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="271">
+                    <rect key="frame" x="185" y="0.0" width="315" height="305"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <clipView key="contentView" id="kmX-t5-rUb">
+                        <rect key="frame" x="1" y="1" width="313" height="303"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="18" id="272">
+                                <rect key="frame" x="0.0" y="0.0" width="313" height="303"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn identifier="selected" width="24" minWidth="10" maxWidth="1000" id="396">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="only" alignment="left" inset="2" id="397">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <binding destination="420" name="enabled" keyPath="selectedDictionary" id="472">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSIsNotNil</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </tableColumn>
+                                    <tableColumn identifier="title" editable="NO" width="283" minWidth="8" maxWidth="1000" id="274">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="1175">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
+                                        <connections>
+                                            <binding destination="420" name="enabled" keyPath="selectedDictionary" id="469">
+                                                <dictionary key="options">
+                                                    <integer key="NSRaisesForNotApplicableKeys" value="0"/>
+                                                    <string key="NSValueTransformerName">NSIsNotNil</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </tableColumn>
+                                </tableColumns>
+                                <connections>
+                                    <outlet property="dataSource" destination="420" id="473"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="1183">
+                        <rect key="frame" x="-100" y="-100" width="236" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="1182">
+                        <rect key="frame" x="-30" y="1" width="15" height="179"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="267">
+                    <rect key="frame" x="20" y="21" width="157" height="339"/>
+                    <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                    <clipView key="contentView" id="Hs1-rS-zH1">
+                        <rect key="frame" x="1" y="1" width="155" height="337"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="18" id="268">
+                                <rect key="frame" x="0.0" y="0.0" width="155" height="337"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn width="152" minWidth="40" maxWidth="1000" id="269">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="1174">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <connections>
+                                            <binding destination="398" name="value" keyPath="arrangedObjects.title" id="403"/>
+                                        </connections>
+                                    </tableColumn>
+                                </tableColumns>
+                            </tableView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="1181">
+                        <rect key="frame" x="-100" y="-100" width="128" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="1180">
+                        <rect key="frame" x="-30" y="17" width="15" height="205"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+        </customView>
+        <customView id="206" userLabel="View">
+            <rect key="frame" x="0.0" y="0.0" width="520" height="196"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" id="415">
+                    <rect key="frame" x="17" y="150" width="143" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Window Style:" id="1163">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" id="1247">
+                    <rect key="frame" x="17" y="83" width="153" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Fit web page to width:" id="1248">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button id="1222">
+                    <rect key="frame" x="18" y="123" width="485" height="18"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Add continuous contents automatically" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1223">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="169" name="value" keyPath="selection.autoFowardingContents" id="1226"/>
+                    </connections>
+                </button>
+                <segmentedControl verticalHuggingPriority="750" id="1236">
+                    <rect key="frame" x="165" y="146" width="335" height="25"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fill" style="automatic" trackingMode="selectOne" id="1237">
+                        <font key="font" metaFont="system"/>
+                        <segments>
+                            <segment label="Vertical" image="icon_vertical" width="109" selected="YES" tag="1002"/>
+                            <segment label="Horizonal" image="icon_horizonal" width="109" tag="1001"/>
+                            <segment label="Automatic" image="icon_automatic" width="109" tag="1003"/>
+                        </segments>
+                    </segmentedCell>
+                    <connections>
+                        <binding destination="169" name="selectedTag" keyPath="selection.windowStyle" id="1238"/>
+                    </connections>
+                </segmentedControl>
+                <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" id="1243">
+                    <rect key="frame" x="175" y="79" width="323" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    <size key="cellSize" width="323" height="18"/>
+                    <size key="intercellSpacing" width="4" height="2"/>
+                    <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="1244">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <cells>
+                        <column>
+                            <buttonCell type="radio" title="When the page is loaded" imagePosition="left" alignment="left" state="on" tag="1002" inset="2" id="1245">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <buttonCell type="radio" title="None" imagePosition="left" alignment="left" tag="1000" inset="2" id="1246">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </column>
+                    </cells>
+                    <connections>
+                        <binding destination="169" name="selectedTag" keyPath="selection.fitWebViewScale" id="1252"/>
+                    </connections>
+                </matrix>
+                <textField verticalHuggingPriority="750" id="1289">
+                    <rect key="frame" x="18" y="54" width="163" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Text Orientation:" id="1294">
+                        <font key="font" size="13" name="HiraKakuProN-W3"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" id="1290">
+                    <rect key="frame" x="174" y="33" width="326" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    <size key="cellSize" width="326" height="18"/>
+                    <size key="intercellSpacing" width="4" height="2"/>
+                    <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="1291">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <cells>
+                        <column>
+                            <buttonCell type="radio" title="Horaizonal" imagePosition="left" alignment="left" state="on" tag="1001" inset="2" id="1292">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <buttonCell type="radio" title="Vertical" imagePosition="left" alignment="left" tag="1002" inset="2" id="1293">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </column>
+                    </cells>
+                    <connections>
+                        <binding destination="169" name="selectedTag" keyPath="selection.textOrientation" id="1299"/>
+                    </connections>
+                </matrix>
+            </subviews>
+        </customView>
+        <customView id="207" userLabel="Etc">
+            <rect key="frame" x="0.0" y="0.0" width="520" height="240"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+            <subviews>
+                <button id="217">
+                    <rect key="frame" x="17" y="184" width="468" height="18"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Play a sound/movie automatically" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="1169">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="169" name="value" keyPath="selection.playSoundAutomatically" id="257"/>
+                    </connections>
+                </button>
+                <button id="1215">
+                    <rect key="frame" x="34" y="144" width="369" height="18"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Search on background" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1216">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="169" name="enabled" keyPath="selection.pasteboardSearch" id="1219"/>
+                        <binding destination="169" name="value" keyPath="selection.backgroundPasteboardSearch" id="1221"/>
+                    </connections>
+                </button>
+                <button id="1211">
+                    <rect key="frame" x="17" y="164" width="485" height="18"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Search string in a pasteboard automatically" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="1212">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="169" name="value" keyPath="selection.pasteboardSearch" id="1217"/>
+                    </connections>
+                </button>
+                <button id="213">
+                    <rect key="frame" x="17" y="204" width="439" height="18"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Quit application when all windows are closed" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="1165">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <binding destination="169" name="value" keyPath="selection.quitWhenNoWindow" id="256"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" id="1253">
+                    <rect key="frame" x="17" y="121" width="121" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Swipe behavior" id="1254">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <matrix verticalHuggingPriority="750" allowsEmptySelection="NO" id="1255">
+                    <rect key="frame" x="143" y="80" width="357" height="58"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    <size key="cellSize" width="357" height="18"/>
+                    <size key="intercellSpacing" width="4" height="2"/>
+                    <buttonCell key="prototype" type="radio" title="Radio" imagePosition="left" alignment="left" inset="2" id="1256">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <cells>
+                        <column>
+                            <buttonCell type="radio" title="Page moving" imagePosition="left" alignment="left" state="on" tag="1001" inset="2" id="1257">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <buttonCell type="radio" title="Switching Dictionary" imagePosition="left" alignment="left" tag="1002" inset="2" id="1258">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <buttonCell type="radio" title="None" imagePosition="left" alignment="left" tag="1000" inset="2" id="1262">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </column>
+                    </cells>
+                    <connections>
+                        <binding destination="169" name="selectedTag" keyPath="selection.swipeBehavior" id="1261"/>
+                    </connections>
+                </matrix>
+            </subviews>
+        </customView>
+        <customView id="497" userLabel="QuickTab">
+            <rect key="frame" x="0.0" y="0.0" width="520" height="380"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button id="1192" customClass="GradientButton">
+                    <rect key="frame" x="20" y="0.0" width="480" height="22"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <buttonCell key="cell" type="square" title="Button" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="1193" customClass="GradientButtonCell">
+                        <behavior key="behavior" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="498">
+                    <rect key="frame" x="20" y="20" width="480" height="315"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <clipView key="contentView" id="lKe-Hi-jiL">
+                        <rect key="frame" x="1" y="1" width="478" height="313"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="sequential" alternatingRowBackgroundColors="YES" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="18" id="499" customClass="DictionaryArrayTable">
+                                <rect key="frame" x="0.0" y="0.0" width="478" height="313"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn width="32" minWidth="32" maxWidth="32" id="535">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="only" alignment="center" inset="2" id="536">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <binding destination="526" name="value" keyPath="arrangedObjects.quickTag" id="537"/>
+                                        </connections>
+                                    </tableColumn>
+                                    <tableColumn width="383" minWidth="8" maxWidth="1000" id="500">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="1176">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <connections>
+                                            <binding destination="526" name="value" keyPath="arrangedObjects.tagName" id="1229"/>
+                                        </connections>
+                                    </tableColumn>
+                                    <tableColumn width="54" minWidth="54" maxWidth="54" id="502">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <popUpButtonCell key="dataCell" type="bevel" bezelStyle="rounded" alignment="left" controlSize="small" lineBreakMode="truncatingTail" borderStyle="bezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" id="503">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <menu key="menu" id="1177"/>
+                                            <connections>
+                                                <outlet property="menu" destination="546" id="549"/>
+                                            </connections>
+                                        </popUpButtonCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
+                                        <connections>
+                                            <binding destination="526" name="selectedTag" keyPath="arrangedObjects.keyEquivalent" id="573">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">KeyEquivalentToNumberTransformer</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </tableColumn>
+                                </tableColumns>
+                                <connections>
+                                    <outlet property="dataSource" destination="526" id="1205"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="1185">
+                        <rect key="frame" x="-100" y="-100" width="415" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="1184">
+                        <rect key="frame" x="330" y="1" width="15" height="279"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <textField verticalHuggingPriority="750" id="1234">
+                    <rect key="frame" x="17" y="343" width="277" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Select dictionaries displayed on quick tab" id="1235">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+        </customView>
+        <customView id="939" userLabel="Network">
+            <rect key="frame" x="0.0" y="0.0" width="520" height="326"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" id="1003">
+                    <rect key="frame" x="17" y="289" width="486" height="17"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Select favorite dictionaries" id="1171">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="20" horizontalPageScroll="10" verticalLineScroll="20" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="994">
+                    <rect key="frame" x="20" y="20" width="480" height="261"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <clipView key="contentView" id="K5w-qp-0oJ">
+                        <rect key="frame" x="1" y="1" width="478" height="259"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="18" id="997">
+                                <rect key="frame" x="0.0" y="0.0" width="478" height="259"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn width="32" minWidth="32" maxWidth="32" id="999">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <buttonCell key="dataCell" type="check" title="Check" bezelStyle="regularSquare" imagePosition="only" alignment="left" inset="2" id="1005">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <binding destination="1062" name="value" keyPath="arrangedObjects.selected" id="1203">
+                                                <dictionary key="options">
+                                                    <integer key="NSConditionallySetsEditable" value="1"/>
+                                                    <integer key="NSConditionallySetsEnabled" value="0"/>
+                                                    <integer key="NSCreatesSortDescriptor" value="0"/>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </tableColumn>
+                                    <tableColumn editable="NO" width="440" minWidth="40" maxWidth="1000" id="1000">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="1001">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
+                                        <connections>
+                                            <binding destination="1062" name="value" keyPath="arrangedObjects.title" id="1263">
+                                                <dictionary key="options">
+                                                    <integer key="NSConditionallySetsEditable" value="1"/>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </tableColumn>
+                                </tableColumns>
+                            </tableView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="1187">
+                        <rect key="frame" x="-100" y="-100" width="427" height="15"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="1186">
+                        <rect key="frame" x="413" y="1" width="15" height="262"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+        </customView>
+        <view id="340">
+            <rect key="frame" x="0.0" y="0.0" width="349" height="329"/>
+            <autoresizingMask key="autoresizingMask"/>
+        </view>
+        <customObject id="420" userLabel="DictionarySetModal" customClass="DictionarySetModal">
+            <connections>
+                <outlet property="_dictionarySetController" destination="398" id="422"/>
+                <outlet property="_tableView" destination="272" id="423"/>
+            </connections>
+        </customObject>
+        <objectController objectClassName="PreferenceModal" id="169" userLabel="PreferenceController">
+            <declaredKeys>
+                <string>headingFont</string>
+                <string>contentsFont</string>
+                <string>linkColor</string>
+                <string>indexColor</string>
+                <string>linkUnderLine</string>
+                <string>deminichRescan</string>
+                <string>useSmallWindow</string>
+                <string>quitWhenNoWindow</string>
+                <string>playSoundAutomatically</string>
+                <string>useSoundWindow</string>
+                <string>windowStyle</string>
+                <string>dictionaryList</string>
+                <string>id</string>
+                <string>title</string>
+                <string>dictionaries. dictionaries</string>
+                <string>dictionaries.dictionaries</string>
+                <string>quickTagFont</string>
+                <string>findColor</string>
+                <string>contentsColor</string>
+                <string>headingColor</string>
+                <string>dictionaries.root</string>
+                <string>dictionaries.netDictionaries</string>
+                <string>pastebordSearch</string>
+                <string>pasteboardSearch</string>
+                <string>backgroundPasteboardSearch</string>
+                <string>autoFowardingContents</string>
+            </declaredKeys>
+            <connections>
+                <binding destination="-2" name="contentObject" keyPath="preferenceModal" id="179"/>
+            </connections>
+        </objectController>
+        <treeController objectClassName="DictionaryListItem" childrenKeyPath="children" id="278" userLabel="DictionaryTreeController" customClass="DictionaryTreeController">
+            <declaredKeys>
+                <string>title</string>
+                <string>path</string>
+                <string>isBook</string>
+                <string>canHaveAppendix</string>
+                <string>tag</string>
+                <string>appendix</string>
+                <string>displayPath</string>
+                <string>canRenameTag</string>
+            </declaredKeys>
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="dictionaries.root" id="385"/>
+            </connections>
+        </treeController>
+        <arrayController id="398" userLabel="DictionarySetController">
+            <declaredKeys>
+                <string>title</string>
+                <string>dictionaries</string>
+                <string>a</string>
+                <string>index</string>
+            </declaredKeys>
+            <connections>
+                <binding destination="169" name="contentArray" keyPath="selection.ebookSet" id="608"/>
+            </connections>
+        </arrayController>
+        <arrayController id="526" userLabel="QuickTabController" customClass="DictionayArrayController">
+            <declaredKeys>
+                <string>tag</string>
+                <string>quickTag</string>
+                <string>keyEquiment</string>
+                <string>keyEquivaleent</string>
+                <string>keyEquivalent</string>
+            </declaredKeys>
+        </arrayController>
+        <arrayController id="544" userLabel="KeyEquivalentController"/>
+        <arrayController id="1062" userLabel="NetDictionaryController">
+            <declaredKeys>
+                <string>ShortName</string>
+                <string>selected</string>
+            </declaredKeys>
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="dictionaries.netDictionaries" id="1067"/>
+            </connections>
+        </arrayController>
+        <menu title="Menu" id="546" userLabel="keyEquivalentMenu">
+            <items>
+                <menuItem title="None" tag="-1" id="571"/>
+                <menuItem isSeparatorItem="YES" id="570">
+                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                </menuItem>
+                <menuItem title="⌘1" tag="1" id="547"/>
+                <menuItem title="⌘2" tag="2" id="548"/>
+                <menuItem title="⌘3" tag="3" id="550">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="⌘4" tag="4" id="551"/>
+                <menuItem title="⌘5" tag="5" id="552"/>
+                <menuItem title="⌘6" tag="6" id="553"/>
+                <menuItem title="⌘7" tag="7" id="554"/>
+                <menuItem title="⌘8" tag="8" id="555"/>
+                <menuItem title="⌘9" tag="9" id="556"/>
+            </items>
+        </menu>
+    </objects>
+    <resources>
+        <image name="icon_add" width="16" height="16"/>
+        <image name="icon_automatic" width="16" height="16"/>
+        <image name="icon_delete" width="16" height="16"/>
+        <image name="icon_horizonal" width="16" height="16"/>
+        <image name="icon_underline" width="24" height="17"/>
+        <image name="icon_vertical" width="16" height="16"/>
+    </resources>
+</document>

@@ -29,10 +29,10 @@
     }else{
         NSRect bounds = self.bounds;
         
-        [[NSColor colorWithWhite:1.0f alpha:1.0f] set];
-        NSRectFill(bounds);
+        //[[NSColor colorWithWhite:1.0f alpha:1.0f] set];
+        //NSRectFill(bounds);
         
-        [[NSColor colorWithWhite:0.5f alpha:1.0] set];
+        //[[NSColor colorWithWhite:0.5f alpha:1.0] set];
         NSBezierPath* line = [[NSBezierPath alloc] init];
         [line moveToPoint:NSMakePoint(bounds.origin.x,
                                       bounds.origin.y)];

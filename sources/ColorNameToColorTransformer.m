@@ -39,9 +39,9 @@
 -(id) reverseTransformedValue:(id) value
 {
 	if (value == nil || ![value isKindOfClass:[NSColor class]]) return nil;
-	
+    
 	CGFloat red, green, blue, alpha;
-	[value getRed:&red green:&green blue:&blue alpha:&alpha];
+    [[value colorUsingColorSpace:[NSColorSpace genericRGBColorSpace]] getRed:&red green:&green blue:&blue alpha:&alpha];
     
 	return [NSString stringWithFormat:@"%f %f %f 1.0", red, green, blue];
 }

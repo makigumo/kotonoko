@@ -128,7 +128,7 @@
 {
 	if(center){
 		NSMutableParagraphStyle* style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-		[style setAlignment:NSCenterTextAlignment];
+        [style setAlignment:NSTextAlignmentCenter];
 		[_attribute setObject:style forKey:NSParagraphStyleAttributeName];
 	}else{
 		[_attribute removeObjectForKey:NSParagraphStyleAttributeName];

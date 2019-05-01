@@ -69,7 +69,7 @@ const static CGFloat PAGE_CURL_ANGLE = M_PI - M_PI / 12;
 - (void)scrollWheel:(NSEvent *)event
 {
     if ([event phase] == NSEventPhaseNone) return;
-    if (fabsf([event scrollingDeltaX]) <= fabsf([event scrollingDeltaY])) return;
+    if (fabs([event scrollingDeltaX]) <= fabs([event scrollingDeltaY])) return;
     if (![NSEvent isSwipeTrackingFromScrollEventsEnabled]) return;
     
     if (_animationPosition != nil) return;

@@ -37,7 +37,7 @@
                                   innerRect.origin.y + 4.0 , //+ imageSize.height,
                                   imageSize.width,
                                   imageSize.height);
-    [image drawInRect:imageRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0 respectFlipped:YES hints:nil];
+    [image drawInRect:imageRect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.0 respectFlipped:YES hints:nil];
     //[image compositeToPoint:imageOrigin operation:NSCompositeSourceOver];
 	
 	NSFont* font = [self font];

@@ -698,7 +698,7 @@ static unsigned sBinderIdentifier = kFirstBinderId;
 {
 	NSMutableAttributedString* copyright = [[NSMutableAttributedString alloc] initWithString:@""];
 	NSMutableParagraphStyle* style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-	[style setAlignment:NSCenterTextAlignment];
+    [style setAlignment:NSTextAlignmentCenter];
 	
 	[copyright appendAttributedString:[[NSAttributedString alloc] initWithString:@"\r\r"]];
 	

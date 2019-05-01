@@ -152,7 +152,8 @@
 		}
 		[mTableView reloadData];
 		// 複数選択可能にするならここもなんとかしないとね
-		[mTableView selectRow:(insertIndex-1) byExtendingSelection:NO];
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:insertIndex-1];
+        [mTableView selectRowIndexes:indexSet byExtendingSelection:NO];
     }
     return TRUE;
 }

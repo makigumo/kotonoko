@@ -35,7 +35,7 @@
     if(!_player){ _player = [[AVPlayer alloc] init]; }
     
     AVAsset* asset = [AVAsset assetWithURL:[NSURL fileURLWithPath:path isDirectory:NO]];
-    [asset loadValuesAsynchronouslyForKeys:nil completionHandler:^(void){
+    [asset loadValuesAsynchronouslyForKeys:@[] completionHandler:^(void){
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             NSArray* tracks = [asset tracksWithMediaType:AVMediaTypeVideo];
             CGSize size = ([tracks count] > 0) ? [[[asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0] naturalSize] : NSMakeSize(80  , 80);
