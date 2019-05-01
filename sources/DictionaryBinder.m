@@ -377,7 +377,7 @@ static unsigned sBinderIdentifier = kFirstBinderId;
         [self bind:@"tagName" toObject:item withKeyPath:@"tagName" options:nil];
         [self bind:@"title" toObject:item withKeyPath:@"title" options:nil];
         _ebook = [[item valueForKey:@"id"] copyWithZone:nil];
-        id dictionaryPreference = [PreferenceModal dictioanryPreferenceForId:_ebook];
+        id dictionaryPreference = [PreferenceModal dictionaryPreferenceForId:_ebook];
         [self bind:@"quickTag" toObject:dictionaryPreference withKeyPath:@"quickTag" options:nil];
         [self bind:@"keyEquivalent" toObject:dictionaryPreference withKeyPath:@"dictionaryPreference" options:nil];
     
@@ -544,7 +544,7 @@ static unsigned sBinderIdentifier = kFirstBinderId;
 		[self bind:@"dictionaryList" toObject:paramators withKeyPath:@"dictionaries" options:nil];
 		[self bind:@"keyEquivalent" toObject:paramators withKeyPath:@"dictionaryPreference" options:nil];
 		_prefId = [identify copyWithZone:nil];
-		id pref = [PreferenceModal dictioanryPreferenceForId:_prefId];
+		id pref = [PreferenceModal dictionaryPreferenceForId:_prefId];
 		if(pref){
 			NSNumber* idx = [pref valueForKey:@"index"];
 			_index = idx ? [idx copyWithZone:nil] : [NSNumber numberWithUnsignedInt:0];

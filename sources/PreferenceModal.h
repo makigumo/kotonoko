@@ -15,7 +15,7 @@
 +(id) prefForKey:(NSString*) key;
 +(NSColor*) colorForKey:(NSString*) key;
 +(NSFont*) fontForKey:(NSString*) key;
-+(NSMutableDictionary*) dictioanryPreferenceForId:(NSString*) identifier;
++(NSMutableDictionary*) dictionaryPreferenceForId:(NSString*) identifier;
 +(NSString*) dictionaryIdForFullPath:(NSString*) path;
 +(void) setDictionaryId:(NSString*) identifier forFullPath:(NSString*) fullPath;
 

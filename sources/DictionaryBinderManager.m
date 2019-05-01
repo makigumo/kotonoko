@@ -383,7 +383,7 @@ DictionaryBinderManager* sSharedDictionaryBinderManager = NULL;
 	for(DictionaryBinder* binder in _binders){
 		NSString* prefId = [binder prefId];
 		if(prefId){
-			id pref = [PreferenceModal dictioanryPreferenceForId:prefId];
+			id pref = [PreferenceModal dictionaryPreferenceForId:prefId];
 			[pref setValue:[NSNumber numberWithUnsignedInteger:index++] forKey:@"index"];
 		}
 	}

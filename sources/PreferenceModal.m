@@ -7,6 +7,7 @@
 #import "PreferenceUtilities.h"
 #import "PreferenceModal.h"
 #import "EBookUtilities.h"
+#import "ColorNameToColorTransformer.h"
 
 #import <WebKit/WebKit.h>
 
@@ -16,6 +17,7 @@ static PreferenceModal* sSharedPreferenceModal = nil;
 static NSDictionary *defaultValues()
 {
     static NSDictionary *defaults = nil;
+    ColorNameToColorTransformer *transformer = [[ColorNameToColorTransformer alloc] init];
     
     if(!defaults){
         defaults = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -29,13 +31,13 @@ static NSDictionary *defaultValues()
 			[NSString stringWithFormat:@"%@ %.0f",
 				[[NSFont labelFontOfSize:[NSFont smallSystemFontSize]] fontName],
 				[NSFont smallSystemFontSize]], kQuickTabFont,
-			@"0.0 0.0 0.0 1.0", kContentsColor,
-			@"0.0 0.0 0.0 1.0", kHeadingColor,
-			@"0.0 0.0 1.0 1.0", kIndexColor,
-			@"1.0 0.0 0.0 1.0", kLinkColor,
-			@".25 .25 .25 .25", kDictionaryNameColor,
-			@"1.0 0.75 0.5 1.0", kFindColor,
-			@"0.45 0.50 0.60 1.0", kDictionaryBackgroundColor,
+			(NSString *)[transformer reverseTransformedValue:NSColor.textColor], kContentsColor,
+			(NSString *)[transformer reverseTransformedValue:NSColor.systemBlueColor], kHeadingColor,
+			(NSString *)[transformer reverseTransformedValue:NSColor.systemRedColor], kIndexColor,
+			(NSString *)[transformer reverseTransformedValue:NSColor.linkColor], kLinkColor,
+			(NSString *)[transformer reverseTransformedValue:NSColor.secondaryLabelColor], kDictionaryNameColor,
+			(NSString *)[transformer reverseTransformedValue:NSColor.findHighlightColor], kFindColor,
+			(NSString *)[transformer reverseTransformedValue:NSColor.textBackgroundColor], kDictionaryBackgroundColor,
 			@"", kCurrentDictionary,
 			[NSNumber numberWithInt:kWindowStyleAutomatic], kWindowStyle,
 			[NSNumber numberWithInt:350], kWSSwitchingWidth,
@@ -127,7 +129,7 @@ static NSDictionary *defaultValues()
 
 //-- dictionaryPreferenceForId
 // 単体辞書の設定値をIDから求める
-+(NSMutableDictionary*) dictioanryPreferenceForId:(NSString*) identifier
++(NSMutableDictionary*) dictionaryPreferenceForId:(NSString*) identifier
 {
 	NSMutableDictionary* table = [PreferenceModal prefForKey:kDictionaryTable];
 	NSMutableDictionary* param = [table valueForKey:identifier];

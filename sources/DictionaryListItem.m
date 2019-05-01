@@ -101,7 +101,7 @@
 // 辞書にタグを付加する
 -(void) setTagName : (NSString*) value
 {
-	NSMutableDictionary* param = [PreferenceModal dictioanryPreferenceForId:[self valueForKey:@"id"]];
+	NSMutableDictionary* param = [PreferenceModal dictionaryPreferenceForId:[self valueForKey:@"id"]];
 	if(value != NULL){
 		[param setObject:value forKey:@"tagName"];
 	}else{
@@ -164,7 +164,7 @@
                 forKey:@"displayPath"];
         [self setValue:fullpath forKey:@"path"];
 	
-        NSMutableDictionary* param = [PreferenceModal dictioanryPreferenceForId:directoryName];
+        NSMutableDictionary* param = [PreferenceModal dictionaryPreferenceForId:directoryName];
         NSString* tagName = [param valueForKey:@"tagName"];
         if(tagName){ [_paramators setValue:[NSString stringWithString:tagName] forKey:@"tagName"]; };
 	

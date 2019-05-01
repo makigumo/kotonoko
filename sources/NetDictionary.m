@@ -121,7 +121,7 @@
 // 辞書にタグを付加する
 -(void) setTagName : (NSString*) value
 {
-	NSMutableDictionary* param = [PreferenceModal dictioanryPreferenceForId:[self valueForKey:@"id"]];
+	NSMutableDictionary* param = [PreferenceModal dictionaryPreferenceForId:[self valueForKey:@"id"]];
 	if(value != nil && ![value isKindOfClass:[NSNull class]]){
 		[param setObject:value forKey:@"tagName"];
 		[_paramators setObject:value forKey:@"tagName"];
@@ -149,7 +149,7 @@
 	NSNumber* value = [NSNumber numberWithBool:selection];
 	[_paramators setObject:value forKey:@"selected"];
 	
-	NSMutableDictionary* param = [PreferenceModal dictioanryPreferenceForId:[self valueForKey:@"id"]];
+	NSMutableDictionary* param = [PreferenceModal dictionaryPreferenceForId:[self valueForKey:@"id"]];
 	[param setObject:value forKey:@"selected"];
 	
 	if(selection){
@@ -167,7 +167,7 @@
 {
 	[_paramators setObject:identify forKey:@"id"];
 	
-	NSMutableDictionary* param = [PreferenceModal dictioanryPreferenceForId:identify];
+	NSMutableDictionary* param = [PreferenceModal dictionaryPreferenceForId:identify];
 	NSString* tag = [param objectForKey:@"tagName"];
 	if(tag){
 		[_paramators setObject:tag forKey:@"tagName"];

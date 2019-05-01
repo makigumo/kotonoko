@@ -8,7 +8,6 @@
 #import "LinerMatrix.h"
 #import "ACBindingItem.h"
 #import "PreferenceModal.h"
-#import "BGButtonCell.h"
 
 const NSString* kMatrixValueBindingIdentifier = @"value";
 const NSString* kMatrixSelectionBindingIdentifier = @"selectedIndex";
@@ -79,7 +78,7 @@ const NSString* kMatrixSelectionBindingIdentifier = @"selectedIndex";
 // 新規にcellを作成する
 -(NSButtonCell*) appendCell
 {
-	BGButtonCell* cell = [[BGButtonCell alloc] initTextCell:@""];
+	NSButtonCell* cell = [[NSButtonCell alloc] initTextCell:@""];
 	[cell setBezeled:NO];
 	//[cell setBezelStyle:NSShadowlessSquareBezelStyle];
 	
